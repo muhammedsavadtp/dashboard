@@ -7,7 +7,7 @@ import SideBar from "../components/SideBar";
 const Home = () => {
   return (
     <>
-      <div className="flex h-screen bg-gray-800">
+      <div className="flex h-screen bg-[#e8edff]">
         <SideBar />
         <MainMenu />
         <Pagination />

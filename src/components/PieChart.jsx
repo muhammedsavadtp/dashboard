@@ -11,6 +11,7 @@ const PieChartComponent = () => {
       value: res.value,
     };
   });
+  console.log(pieData);
 
   const COLORS = ["#2E7D32", "#4CAF50", "#66BB6A", "#81C784", "#A5D6A7"];
 
@@ -42,7 +43,7 @@ const PieChartComponent = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white h-60 p-4 rounded shadow">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie
@@ -64,8 +65,6 @@ const PieChartComponent = () => {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-
-      {/* color indicatory  */}
     </div>
   );
 };

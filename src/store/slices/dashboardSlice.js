@@ -6,6 +6,7 @@ export const dashboardSlice = createSlice({
     tableData: [],
     lineChartData: [],
     pieChartData: [],
+    sidebarOpen:false,
   },
   reducers: {
     getTableData: (state, action) => {
@@ -17,11 +18,14 @@ export const dashboardSlice = createSlice({
     getPieChartData: (state, action) => {
       state.pieChartData = action.payload;
     },
+    setSideBar: (state, action) => {
+      state.sidebarOpen = action.payload;
+    },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { getTableData, getLineChartData, getPieChartData } =
+
+export const { getTableData, getLineChartData, getPieChartData, setSideBar } =
   dashboardSlice.actions;
 
 export default dashboardSlice.reducer;

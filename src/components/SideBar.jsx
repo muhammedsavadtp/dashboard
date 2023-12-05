@@ -1,25 +1,34 @@
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import SidebarButton from "./SideBarButtons";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setSideBar } from "../store/slices/dashboardSlice";
 const SideBar = () => {
+  const { sidebarOpen } = useSelector((state) => state.dashboardSlice);
+
   const [activeButton, setActiveButton] = useState("Dashboard");
+
+  const dispatch = useDispatch();
 
   const handleButtonClick = (text) => {
     setActiveButton(text);
+    dispatch(setSideBar(!sidebarOpen));
   };
+
   return (
     <>
       {/* Sidebar */}
-      <div className="w-64 bg-gray-900 p-4 flex flex-col justify-between h-screen">
+      <div
+        className={` inset-0 bg-gray-900  lg:flex lg:w-64 ${
+          sidebarOpen ? "bg-gray-900 z-20 fixed" : "hidden"
+        } p-4 flex flex-col justify-between h-screen`}
+      >
         <div className="flex flex-col items-center mb-5 mt-5">
           <img
             className="h-16 w-16 object-cover mb-2 rounded-full"
             src="/src/assets/Briefcase.png"
             alt="Logo"
           />
-          <h2 className="text-white text-sm font-bold">STATEBOARD</h2>
+          <h2 className={`text-white text-sm font-bold`}>STATEBOARD</h2>
         </div>
 
         {/* Sidebar Buttons */}
@@ -51,11 +60,18 @@ const SideBar = () => {
         </div>
 
         {/* Logout Button */}
-        <button className="w-full h-10 bg-white py-2 px-4 text-orange-500 hover:bg-gray-100 flex items-center justify-center rounded">
+        <button
+          className={`w-full h-10 ${
+            sidebarOpen ? "bg-gray-200" : "bg-white"
+          } py-2 px-4 text-orange-500 hover:bg-gray-100 flex items-center justify-center rounded`}
+          onClick={() => {
+            handleButtonClick("Logout");
+          }}
+        >
           Logout
           <img
             className="h-4 w-4 object-cover ml-2 rounded-full"
-            src="/src/assets/Shutdown.png" // Replace with the actual path to your logout icon
+            src="/src/assets/Shutdown.png"
             alt="Logout Icon"
           />
         </button>

@@ -20,7 +20,7 @@ const CustomLineChart = () => {
     };
   });
   return (
-    <div className="bg-white p-4 rounded shadow">
+    <div className="bg-white p-4 rounded shadow h-60">
       <ResponsiveContainer width="100%" height={200}>
         <LineChart
           width={500}

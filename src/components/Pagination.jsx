@@ -36,7 +36,7 @@ const Pagination = ({ totalPages, onPageChange }) => {
   };
 
   return (
-    <div className="flex items-center justify-center my-4">
+    <div className="flex  bottom-0 items-center justify-center  my-4 p-2">
       {currentPage > 1 && (
         <button
           className="mx-1 px-3 py-2 rounded-l focus:outline-none bg-white text-gray-800"

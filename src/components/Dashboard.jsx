@@ -8,7 +8,6 @@ import {
   fetchPieChartData,
   fetchTableData,
 } from "../api/dashboardApi";
-import { useSelector } from "react-redux";
 import PieChartComponent from "./PieChart";
 
 const Dashboard = () => {
@@ -20,20 +19,19 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {/* line chart  */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-20 md:mt-0">
+      {/* First Line */}
       <div className="sm:col-span-1 sm:col-start-1 sm:col-end-2">
         <LineChart />
       </div>
+      <div className="sm:col-span-1 sm:col-start-2 sm:col-end-3">
+        <PieChartComponent />
+      </div>
 
-      {/*  Pie Chart */}
-      <PieChartComponent />
-      <div className="sm:col-span-1 sm:col-start-2 sm:col-end-3"></div>
-
+      {/* Second Line */}
       <div className="sm:col-span-1 sm:col-start-1 sm:col-end-2">
         <Table />
       </div>
-
       <div className="sm:col-span-1 sm:col-start-2 sm:col-end-3">
         <UserProfile />
       </div>
